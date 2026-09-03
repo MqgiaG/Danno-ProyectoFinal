@@ -7,17 +7,26 @@ import './ShootingConditions.css'
 const ERROR_MESSAGE = 'Algo salió mal con la solicitud. Puede ser un problema de conexión o del servidor. Inténtalo de nuevo más tarde.'
 const weatherLabel = (code: number) => code === 0 ? 'Cielo despejado' : code < 4 ? 'Parcialmente nublado' : code < 60 ? 'Niebla' : code < 80 ? 'Lluvia' : 'Tormenta'
 
+const getCachedForecast = (): WeatherDay[] => {
+  const cached = localStorage.getItem(WEATHER_CACHE_KEY)
+
+  if (!cached) return []
+
+  try {
+    return JSON.parse(cached) as WeatherDay[]
+  } catch {
+    localStorage.removeItem(WEATHER_CACHE_KEY)
+    return []
+  }
+}
+
 export default function ShootingConditions() {
-  const [forecast, setForecast] = useState<WeatherDay[]>([])
+  const [forecast, setForecast] = useState<WeatherDay[]>(getCachedForecast)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState('')
   const [visibleDays, setVisibleDays] = useState(INITIAL_FORECAST_DAYS)
 
   useEffect(() => {
-    const cached = localStorage.getItem(WEATHER_CACHE_KEY)
-    if (cached) {
-      try { setForecast(JSON.parse(cached) as WeatherDay[]) } catch { localStorage.removeItem(WEATHER_CACHE_KEY) }
-    }
     getWeatherForecast()
       .then((days) => { setForecast(days); localStorage.setItem(WEATHER_CACHE_KEY, JSON.stringify(days)) })
       .catch(() => setError(ERROR_MESSAGE))
