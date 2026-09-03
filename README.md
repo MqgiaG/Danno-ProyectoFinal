@@ -4,7 +4,7 @@ Portafolio front-end para **DANNO**, fotógrafo y videógrafo de San Felipe, Gua
 
 ## Enlace del proyecto
 
-- Aplicación desplegada: **se añadirá al publicar la versión final**
+- Aplicación desplegada: [danno-proyecto-final.vercel.app](https://danno-proyecto-final.vercel.app)
 - Repositorio: [MqgiaG/Danno-ProyectoFinal](https://github.com/MqgiaG/Danno-ProyectoFinal)
 
 ## Funcionalidad
