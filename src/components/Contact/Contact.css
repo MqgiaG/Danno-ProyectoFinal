@@ -1,0 +1,2859 @@
+/* =========================================================
+   CONTACT — DANNO
+   Premium Request Desk / Photography Portfolio
+========================================================= */
+
+.contact {
+  position: relative;
+
+  width: 100%;
+
+  padding:
+    105px
+    3%
+    70px;
+
+  overflow: hidden;
+
+  color: #f5f0ea;
+
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      rgba(200, 170, 141, 0.055),
+      transparent 31%
+    ),
+    radial-gradient(
+      circle at 80% 78%,
+      rgba(200, 170, 141, 0.025),
+      transparent 27%
+    ),
+    radial-gradient(
+      circle at 12% 70%,
+      rgba(200, 170, 141, 0.018),
+      transparent 25%
+    ),
+    #080706;
+
+  isolation: isolate;
+}
+
+/* =========================================================
+   AMBIENT BACKGROUND
+========================================================= */
+
+.contact__ambient {
+  position: absolute;
+
+  z-index: -2;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  filter:
+    blur(90px);
+}
+
+.contact__ambient--one {
+  top: 28%;
+  left: 20%;
+
+  width: 330px;
+  height: 330px;
+
+  background:
+    rgba(200, 170, 141, 0.025);
+
+  animation:
+    contactAmbientOne
+    14s
+    ease-in-out
+    infinite;
+}
+
+.contact__ambient--two {
+  right: 14%;
+  bottom: 15%;
+
+  width: 280px;
+  height: 280px;
+
+  background:
+    rgba(200, 170, 141, 0.02);
+
+  animation:
+    contactAmbientTwo
+    17s
+    ease-in-out
+    infinite;
+}
+
+/* =========================================================
+   BACKGROUND WORD
+========================================================= */
+
+.contact__background-word {
+  position: absolute;
+
+  left: 50%;
+  bottom: -3%;
+
+  z-index: -1;
+
+  color:
+    rgba(245, 240, 234, 0.008);
+
+  font-family:
+    'Kanit',
+    sans-serif;
+
+  font-size:
+    clamp(
+      11rem,
+      25vw,
+      31rem
+    );
+
+  font-weight: 600;
+
+  line-height: 0.7;
+
+  letter-spacing:
+    -0.07em;
+
+  transform:
+    translateX(-50%);
+
+  pointer-events: none;
+  user-select: none;
+}
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.contact__container {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1420px;
+
+  margin: 0 auto;
+}
+
+/* =========================================================
+   TOP
+========================================================= */
+
+.contact__top {
+  margin-bottom:
+    42px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content:
+    space-between;
+
+  gap: 40px;
+}
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.contact__section-brand {
+  display: flex;
+
+  flex-direction:
+    column;
+
+  align-items: center;
+
+  gap: 9px;
+}
+
+.contact__brand-mark {
+  position: relative;
+
+  min-width: 210px;
+
+  padding:
+    16px
+    27px
+    15px
+    31px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content:
+    center;
+}
+
+.contact__brand-name {
+  position: relative;
+
+  z-index: 2;
+
+  color: #f5f0ea;
+
+  font-family:
+    'Kanit',
+    sans-serif;
+
+  font-size:
+    1.35rem;
+
+  font-weight: 600;
+
+  line-height: 1;
+
+  letter-spacing:
+    0.38em;
+
+  text-indent:
+    0.38em;
+
+  animation:
+    contactBrandBreath
+    8s
+    ease-in-out
+    infinite;
+}
+
+/* =========================================================
+   BRAND CORNERS
+========================================================= */
+
+.contact__brand-corner {
+  position: absolute;
+
+  width: 22px;
+  height: 22px;
+
+  opacity: 0.65;
+
+  animation:
+    contactCornerBreath
+    6s
+    ease-in-out
+    infinite;
+}
+
+.contact__brand-corner--top-left {
+  top: 0;
+  left: 0;
+
+  border-top:
+    1px solid #c8aa8d;
+
+  border-left:
+    1px solid #c8aa8d;
+}
+
+.contact__brand-corner--bottom-right {
+  right: 0;
+  bottom: 0;
+
+  border-right:
+    1px solid #c8aa8d;
+
+  border-bottom:
+    1px solid #c8aa8d;
+
+  animation-delay:
+    -3s;
+}
+
+.contact__brand-section {
+  color:
+    rgba(200, 170, 141, 0.6);
+
+  font-family:
+    'Oswald',
+    sans-serif;
+
+  font-size:
+    0.48rem;
+
+  letter-spacing:
+    0.28em;
+
+  text-indent:
+    0.28em;
+}
+
+.contact__type {
+  color:
+    rgba(245, 240, 234, 0.2);
+
+  font-family:
+    'Oswald',
+    sans-serif;
+
+  font-size:
+    0.62rem;
+
+  letter-spacing:
+    0.24em;
+}
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.contact__heading {
+  width: 100%;
+  max-width: 930px;
+
+  margin:
+    0 auto
+    65px;
+
+  text-align: center;
+}
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.contact__eyebrow {
+  margin:
+    0 0
+    15px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content:
+    center;
+
+  gap: 13px;
+
+  color: #c8aa8d;
+
+  font-family:
+    'Oswald',
+    sans-serif;
+
+  font-size:
+    0.62rem;
+
+  letter-spacing:
+    0.27em;
+}
+
+.contact__eyebrow > span {
+  position: relative;
+
+  width: 30px;
+  height: 1px;
+
+  overflow: hidden;
+
+  background:
+    rgba(200, 170, 141, 0.2);
+}
+
+.contact__eyebrow
+> span::after {
+  content: '';
+
+  position: absolute;
+
+  top: 0;
+  left: -100%;
+
+  width: 100%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #c8aa8d,
+      transparent
+    );
+
+  animation:
+    contactEyebrowSweep
+    5.5s
+    ease-in-out
+    infinite;
+}
+
+.contact__eyebrow
+> span:last-child::after {
+  animation-delay:
+    -2.75s;
+}
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.contact__title {
+  margin: 0;
+
+  display: flex;
+
+  flex-direction:
+    column;
+
+  align-items: center;
+
+  font-family:
+    'Kanit',
+    sans-serif;
+
+  font-size:
+    clamp(
+      2.8rem,
+      4.5vw,
+      5rem
+    );
+
+  font-weight: 500;
+
+  line-height: 0.96;
+
+  letter-spacing:
+    -0.045em;
+}
+
+.contact__title-primary {
+  color:
+    rgba(245, 240, 234, 0.95);
+
+  animation:
+    contactTitleBreath
+    8s
+    ease-in-out
+    infinite;
+}
+
+.contact__title-accent {
+  background:
+    linear-gradient(
+      105deg,
+      #967962 0%,
+      #b89577 25%,
+      #dec3a7 48%,
+      #b89577 68%,
+      #967962 100%
+    );
+
+  background-size:
+    260% 100%;
+
+  background-position:
+    100% center;
+
+  -webkit-background-clip:
+    text;
+
+  background-clip:
+    text;
+
+  color: transparent;
+
+  animation:
+    contactTitleShimmer
+    10s
+    ease-in-out
+    infinite;
+}
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.contact__description {
+  width: 100%;
+
+  max-width: 540px;
+
+  margin:
+    22px auto
+    0;
+
+  color:
+    rgba(245, 240, 234, 0.34);
+
+  font-family:
+    'Inter',
+    sans-serif;
+
+  font-size:
+    0.76rem;
+
+  line-height:
+    1.75;
+}
+
+/* =========================================================
+   RESERVATION GLASS PANEL
+========================================================= */
+
+.contact__reservation {
+  position: relative;
+
+  width:
+    min(
+      100%,
+      1080px
+    );
+
+  margin:
+    0 auto;
+
+  padding:
+    42px
+    48px
+    28px;
+
+  overflow: hidden;
+
+  border:
+    1px solid
+    rgba(200, 170, 141, 0.16);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.025),
+      rgba(200, 170, 141, 0.022) 30%,
+      rgba(14, 12, 10, 0.68) 58%,
+      rgba(255, 255, 255, 0.012)
+    );
+
+  box-shadow:
+    0 55px 140px
+    rgba(0, 0, 0, 0.42),
+
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.045),
+
+    inset 1px 0 0
+    rgba(255, 255, 255, 0.015);
+
+  backdrop-filter:
+    blur(16px)
+    saturate(110%);
+
+  -webkit-backdrop-filter:
+    blur(16px)
+    saturate(110%);
+
+  isolation: isolate;
+
+  animation:
+    contactPanelBreath
+    8s
+    ease-in-out
+    infinite;
+}
+
+/* inner glass edge */
+
+.contact__reservation::after {
+  content: '';
+
+  position: absolute;
+
+  inset: 7px;
+
+  z-index: -1;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.018);
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   MOVING GLASS REFLECTION
+========================================================= */
+
+.contact__reservation-light {
+  position: absolute;
+
+  top: -35%;
+  bottom: -35%;
+  left: -40%;
+
+  z-index: -1;
+
+  width: 18%;
+
+  opacity: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.018),
+      rgba(255, 255, 255, 0.08),
+      rgba(200, 170, 141, 0.035),
+      transparent
+    );
+
+  filter:
+    blur(15px);
+
+  transform:
+    skewX(-18deg);
+
+  pointer-events: none;
+
+  animation:
+    contactGlassSweep
+    11s
+    ease-in-out
+    infinite;
+}
+
+/* =========================================================
+   GLASS GLOW
+========================================================= */
+
+.contact__reservation-glow {
+  position: absolute;
+
+  top: -170px;
+  left: 50%;
+
+  z-index: -2;
+
+  width: 520px;
+  height: 240px;
+
+  border-radius:
+    50%;
+
+  background:
+    rgba(200, 170, 141, 0.025);
+
+  filter:
+    blur(65px);
+
+  transform:
+    translateX(-50%);
+
+  animation:
+    contactReservationGlow
+    9s
+    ease-in-out
+    infinite;
+}
+
+/* =========================================================
+   RESERVATION TOP
+========================================================= */
+
+.contact__reservation-top {
+  position: relative;
+
+  z-index: 3;
+
+  padding-bottom:
+    22px;
+
+  display: flex;
+
+  align-items:
+    flex-start;
+
+  justify-content:
+    space-between;
+
+  gap: 30px;
+
+  border-bottom:
+    1px solid
+    rgba(245, 240, 234, 0.065);
+}
+
+/* =========================================================
+   RESERVATION HEADING
+========================================================= */
+
+.contact__reservation-heading {
+  display: flex;
+
+  align-items:
+    center;
+
+  gap: 14px;
+}
+
+.contact__reservation-index {
+  color:
+    rgba(200, 170, 141, 0.3);
+
+  font-family:
+    'Oswald',
+    sans-serif;
+
+  font-size:
+    0.42rem;
+
+  letter-spacing:
+    0.17em;
+}
+
+.contact__reservation-heading
+> div {
+  display: flex;
+
+  flex-direction:
+    column;
+
+  gap: 4px;
+}
+
+.contact__reservation-label {
+  color:
+    rgba(245, 240, 234, 0.72);
+
+  font-family:
+    'Oswald',
+    sans-serif;
+
+  font-size:
+    0.56rem;
+
+  letter-spacing:
+    0.21em;
+}
+
+.contact__reservation-heading small {
+  color:
+    rgba(245, 240, 234, 0.21);
+
+  font-family:
+    'Inter',
+    sans-serif;
+
+  font-size:
+    0.56rem;
+}
+
+/* =========================================================
+   REQUEST
+========================================================= */
+
+.contact__reservation-request {
+  display: flex;
+
+  flex-direction:
+    column;
+
+  align-items:
+    flex-end;
+
+  gap: 3px;
+}
+
+.contact__reservation-request
+> span {
+  color:
+    rgba(200, 170, 141, 0.44);
+
+  font-family:
+    'Oswald',
+    sans-serif;
+
+  font-size:
+    0.4rem;
+
+  letter-spacing:
+    0.2em;
+
+  animation:
+    contactRequestBreath
+    5s
+    ease-in-out
+    infinite;
+}
+
+.contact__reservation-request
+small {
+  color:
+    rgba(245, 240, 234, 0.14);
+
+  font-family:
+    'Oswald',
+    sans-serif;
+
+  font-size:
+    0.35rem;
+
+  letter-spacing:
+    0.16em;
+}
+
+/* =========================================================
+   STEPS
+========================================================= */
+
+.contact__steps {
+  position: relative;
+
+  z-index: 3;
+
+  padding:
+    20px
+    0
+    27px;
+
+  display: grid;
+
+  grid-template-columns:
+    auto
+    1fr
+    auto
+    1fr
+    auto;
+
+  align-items:
+    center;
+
+  gap: 16px;
+}
+
+.contact__step {
+  display: flex;
+
+  align-items:
+    center;
+
+  gap: 9px;
+}
+
+.contact__step
+> span {
+  color:
+    rgba(200, 170, 141, 0.46);
+
+  font-family:
+    'Kanit',
+    sans-serif;
+
+  font-size:
+    0.65rem;
+
+  animation:
+    contactStepNumber
+    9s
+    ease-in-out
+    infinite;
+}
+
+.contact__step:nth-of-type(3)
+> span {
+  animation-delay:
+    -3s;
+}
+
+.contact__step:nth-of-type(5)
+> span {
+  animation-delay:
+    -6s;
+}
+
+.contact__step
+> div {
+  display: flex;
+
+  flex-direction:
+    column;
+
+  gap: 1px;
+}
+
+.contact__step strong {
+  color:
+    rgba(245, 240, 234, 0.48);
+
+  font-family:
+    'Oswald',
+    sans-serif;
+
+  font-size:
+    0.39rem;
+
+  font-weight: 400;
+
+  letter-spacing:
+    0.17em;
+}
+
+.contact__step small {
+  color:
+    rgba(245, 240, 234, 0.14);
+
+  font-family:
+    'Inter',
+    sans-serif;
+
+  font-size:
+    0.48rem;
+}
+
+/* =========================================================
+   STEPS LINE
+========================================================= */
+
+.contact__steps-line {
+  position: relative;
+
+  width: 100%;
+  height: 1px;
+
+  overflow: hidden;
+
+  background:
+    rgba(245, 240, 234, 0.055);
+}
+
+.contact__steps-line::after {
+  content: '';
+
+  position: absolute;
+
+  top: 0;
+  left: -35%;
+
+  width: 35%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #c8aa8d,
+      transparent
+    );
+
+  animation:
+    contactStepLine
+    6s
+    ease-in-out
+    infinite;
+}
+
+.contact__steps-line:nth-of-type(2)::after {
+  animation-delay:
+    -3s;
+}
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.contact__form {
+  position: relative;
+
+  z-index: 3;
+
+  display: flex;
+
+  flex-direction:
+    column;
+
+  gap: 25px;
+}
+
+/* =========================================================
+   FORM ROW
+========================================================= */
+
+.contact__form-row {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+
+  gap: 32px;
+}
+
+/* =========================================================
+   FIELD
+========================================================= */
+
+.contact__field {
+  min-width: 0;
+}
+
+/* =========================================================
+   FIELD HEADING
+========================================================= */
+
+.contact__field-heading {
+  margin-bottom:
+    8px;
+
+  display: flex;
+
+  align-items:
+    center;
+
+  gap: 8px;
+}
+
+.contact__field-heading
+> span {
+  color:
+    rgba(200, 170, 141, 0.27);
+
+  font-family:
+    'Oswald',
+    sans-serif;
+
+  font-size:
+    0.35rem;
+
+  letter-spacing:
+    0.14em;
+
+  transition:
+    color
+    0.35s ease;
+}
+
+.contact__field label {
+  color:
+    rgba(200, 170, 141, 0.55);
+
+  font-family:
+    'Oswald',
+    sans-serif;
+
+  font-size:
+    0.46rem;
+
+  letter-spacing:
+    0.2em;
+
+  text-transform:
+    uppercase;
+
+  transition:
+    color
+    0.35s ease,
+    text-shadow
+    0.35s ease;
+}
+
+.contact__field:focus-within
+.contact__field-heading
+> span {
+  color:
+    #c8aa8d;
+}
+
+.contact__field:focus-within
+label {
+  color:
+    #d5b698;
+
+  text-shadow:
+    0 0 12px
+    rgba(200, 170, 141, 0.06);
+}
+
+/* =========================================================
+   INPUT SHELL
+========================================================= */
+
+.contact__input-shell {
+  position: relative;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  border:
+    1px solid
+    rgba(245, 240, 234, 0.075);
+
+  background:
+    linear-gradient(
+      115deg,
+      rgba(255, 255, 255, 0.018),
+      rgba(200, 170, 141, 0.012)
+    );
+
+  box-shadow:
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.015);
+
+  transition:
+    border-color
+    0.4s ease,
+    background-color
+    0.4s ease,
+    box-shadow
+    0.4s ease;
+}
+
+.contact__field:focus-within
+.contact__input-shell {
+  border-color:
+    rgba(200, 170, 141, 0.36);
+
+  background:
+    linear-gradient(
+      115deg,
+      rgba(200, 170, 141, 0.04),
+      rgba(255, 255, 255, 0.012)
+    );
+
+  box-shadow:
+    0 0 26px
+    rgba(200, 170, 141, 0.018),
+
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.03);
+}
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.contact__field input,
+.contact__field select,
+.contact__field textarea {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+
+  border: 0;
+
+  outline: 0;
+
+  background:
+    transparent;
+
+  color:
+    rgba(245, 240, 234, 0.85);
+
+  font-family:
+    'Inter',
+    sans-serif;
+
+  font-size:
+    0.78rem;
+}
+
+.contact__field input,
+.contact__field select {
+  height:
+    52px;
+
+  padding:
+    0 16px;
+}
+
+.contact__field textarea {
+  min-height:
+    125px;
+
+  padding:
+    16px;
+
+  resize:
+    vertical;
+
+  line-height:
+    1.7;
+}
+
+.contact__field
+input::placeholder,
+.contact__field
+textarea::placeholder {
+  color:
+    rgba(245, 240, 234, 0.2);
+
+  transition:
+    color
+    0.35s ease;
+}
+
+.contact__field:focus-within
+input::placeholder,
+.contact__field:focus-within
+textarea::placeholder {
+  color:
+    rgba(245, 240, 234, 0.29);
+}
+
+/* =========================================================
+   SELECT
+========================================================= */
+
+.contact__select-wrapper {
+  position: relative;
+}
+
+.contact__field select {
+  padding-right:
+    48px;
+
+  appearance: none;
+
+  -webkit-appearance:
+    none;
+
+  cursor: pointer;
+}
+
+.contact__field select option {
+  color:
+    #f5f0ea;
+
+  background:
+    #100e0c;
+}
+
+.contact__select-arrow {
+  position: absolute;
+
+  top: 50%;
+  right: 18px;
+
+  z-index: 4;
+
+  width: 7px;
+  height: 7px;
+
+  border-right:
+    1px solid #c8aa8d;
+
+  border-bottom:
+    1px solid #c8aa8d;
+
+  transform:
+    translateY(-70%)
+    rotate(45deg);
+
+  pointer-events:
+    none;
+
+  transition:
+    transform
+    0.35s ease;
+}
+
+.contact__select-wrapper:focus-within
+.contact__select-arrow {
+  transform:
+    translateY(-30%)
+    rotate(225deg);
+}
+
+/* =========================================================
+   INPUT ANIMATED LINE
+========================================================= */
+
+.contact__input-line {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  z-index: 4;
+
+  height: 1px;
+
+  overflow: hidden;
+
+  background:
+    rgba(200, 170, 141, 0.08);
+
+  pointer-events: none;
+}
+
+.contact__input-line::after {
+  content: '';
+
+  position: absolute;
+
+  top: 0;
+  left: 50%;
+
+  width: 0;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #c8aa8d,
+      transparent
+    );
+
+  transform:
+    translateX(-50%);
+
+  transition:
+    width
+    0.55s
+    cubic-bezier(
+      0.2,
+      0.75,
+      0.2,
+      1
+    );
+}
+
+.contact__field:focus-within
+.contact__input-line::after {
+  width:
+    100%;
+}
+
+/* =========================================================
+   DATE / TIME ICONS
+========================================================= */
+
+.contact__field input::-webkit-calendar-picker-indicator {
+  opacity: 0.55;
+
+  filter:
+    invert(83%)
+    sepia(10%)
+    saturate(630%)
+    hue-rotate(341deg)
+    brightness(86%);
+
+  cursor: pointer;
+}
+
+/* =========================================================
+   AUTOFILL FIX
+========================================================= */
+
+.contact__field
+input:-webkit-autofill,
+.contact__field
+input:-webkit-autofill:hover,
+.contact__field
+input:-webkit-autofill:focus,
+.contact__field
+textarea:-webkit-autofill,
+.contact__field
+select:-webkit-autofill {
+  -webkit-text-fill-color:
+    #f5f0ea;
+
+  -webkit-box-shadow:
+    0 0 0 1000px
+    #0d0b09
+    inset;
+
+  box-shadow:
+    0 0 0 1000px
+    #0d0b09
+    inset;
+
+  caret-color:
+    #c8aa8d;
+
+  transition:
+    background-color
+    9999s ease-out;
+}
+
+/* =========================================================
+   SUBMIT AREA
+========================================================= */
+
+.contact__submit-area {
+  margin-top:
+    18px;
+
+  padding-top:
+    26px;
+
+  display: flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap: 35px;
+
+  border-top:
+    1px solid
+    rgba(245, 240, 234, 0.065);
+}
+
+/* =========================================================
+   SUBMIT INFO
+========================================================= */
+
+.contact__submit-info {
+  display: flex;
+
+  flex-direction:
+    column;
+
+  gap: 5px;
+}
+
+.contact__submit-status {
+  display: flex;
+
+  align-items:
+    center;
+
+  gap: 8px;
+}
+
+.contact__submit-status
+> span:last-child {
+  color:
+    rgba(245, 240, 234, 0.5);
+
+  font-family:
+    'Oswald',
+    sans-serif;
+
+  font-size:
+    0.45rem;
+
+  letter-spacing:
+    0.2em;
+}
+
+.contact__status-dot {
+  width: 5px;
+  height: 5px;
+
+  border-radius:
+    50%;
+
+  background:
+    #c8aa8d;
+
+  box-shadow:
+    0 0 12px
+    rgba(200, 170, 141, 0.22);
+
+  animation:
+    contactStatusDot
+    2.8s
+    ease-in-out
+    infinite;
+}
+
+.contact__submit-info small {
+  max-width:
+    300px;
+
+  color:
+    rgba(245, 240, 234, 0.18);
+
+  font-family:
+    'Inter',
+    sans-serif;
+
+  font-size:
+    0.55rem;
+
+  line-height:
+    1.5;
+}
+
+/* =========================================================
+   SUBMIT BUTTON
+========================================================= */
+
+.contact__submit {
+  position: relative;
+
+  width:
+    min(
+      100%,
+      410px
+    );
+
+  min-height:
+    68px;
+
+  padding:
+    14px
+    17px;
+
+  display: grid;
+
+  grid-template-columns:
+    auto
+    1fr
+    33px;
+
+  align-items:
+    center;
+
+  gap: 18px;
+
+  overflow: hidden;
+
+  border:
+    1px solid
+    rgba(200, 170, 141, 0.34);
+
+  color: #f5f0ea;
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(200, 170, 141, 0.055),
+      rgba(255, 255, 255, 0.012)
+    );
+
+  backdrop-filter:
+    blur(12px);
+
+  -webkit-backdrop-filter:
+    blur(12px);
+
+  cursor: pointer;
+
+  transition:
+    transform
+    0.4s
+    cubic-bezier(
+      0.2,
+      0.75,
+      0.2,
+      1
+    ),
+    border-color
+    0.4s ease,
+    background-color
+    0.4s ease,
+    box-shadow
+    0.4s ease;
+}
+
+/* =========================================================
+   SUBMIT LIGHT
+========================================================= */
+
+.contact__submit-light {
+  position: absolute;
+
+  top: -60%;
+  bottom: -60%;
+  left: -35%;
+
+  width: 19%;
+
+  opacity: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      rgba(200, 170, 141, 0.09),
+      transparent
+    );
+
+  filter:
+    blur(8px);
+
+  transform:
+    skewX(-18deg);
+
+  pointer-events:
+    none;
+
+  animation:
+    contactSubmitLight
+    7.5s
+    ease-in-out
+    infinite;
+}
+
+/* =========================================================
+   SUBMIT COPY
+========================================================= */
+
+.contact__submit-copy {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+
+  flex-direction:
+    column;
+
+  align-items:
+    flex-start;
+
+  gap: 2px;
+}
+
+.contact__submit-copy
+strong {
+  color:
+    rgba(245, 240, 234, 0.86);
+
+  font-family:
+    'Oswald',
+    sans-serif;
+
+  font-size:
+    0.52rem;
+
+  font-weight: 400;
+
+  letter-spacing:
+    0.19em;
+}
+
+.contact__submit-copy
+small {
+  color:
+    rgba(245, 240, 234, 0.23);
+
+  font-family:
+    'Inter',
+    sans-serif;
+
+  font-size:
+    0.52rem;
+}
+
+/* =========================================================
+   SUBMIT LINE
+========================================================= */
+
+.contact__submit-line {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+  height: 1px;
+
+  overflow: hidden;
+
+  background:
+    rgba(245, 240, 234, 0.07);
+}
+
+.contact__submit-line::after {
+  content: '';
+
+  position: absolute;
+
+  top: 0;
+  left: -30%;
+
+  width: 30%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #c8aa8d,
+      transparent
+    );
+
+  animation:
+    contactSubmitLine
+    5.8s
+    ease-in-out
+    infinite;
+}
+
+/* =========================================================
+   SUBMIT ICON
+========================================================= */
+
+.contact__submit-icon {
+  position: relative;
+
+  z-index: 2;
+
+  width: 32px;
+  height: 32px;
+
+  border:
+    1px solid
+    rgba(200, 170, 141, 0.48);
+
+  transform:
+    rotate(45deg);
+
+  transition:
+    transform
+    0.5s ease,
+    border-color
+    0.4s ease,
+    background-color
+    0.4s ease;
+}
+
+.contact__submit-icon
+> span {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  background:
+    #c8aa8d;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+}
+
+.contact__submit-icon
+> span:first-child {
+  width: 10px;
+  height: 1px;
+}
+
+.contact__submit-icon
+> span:last-child {
+  width: 1px;
+  height: 10px;
+}
+
+/* =========================================================
+   BUTTON HOVER
+========================================================= */
+
+.contact__submit:hover {
+  border-color:
+    rgba(200, 170, 141, 0.72);
+
+  background:
+    rgba(200, 170, 141, 0.07);
+
+  box-shadow:
+    0 18px 45px
+    rgba(0, 0, 0, 0.3),
+
+    0 0 30px
+    rgba(200, 170, 141, 0.025);
+
+  transform:
+    translateY(-3px);
+}
+
+.contact__submit:hover
+.contact__submit-icon {
+  border-color:
+    #c8aa8d;
+
+  background:
+    #c8aa8d;
+
+  transform:
+    rotate(135deg);
+}
+
+.contact__submit:hover
+.contact__submit-icon
+> span {
+  background:
+    #17120f;
+}
+
+/* =========================================================
+   RESERVATION BOTTOM
+========================================================= */
+
+.contact__reservation-bottom {
+  position: relative;
+
+  z-index: 3;
+
+  margin-top:
+    28px;
+
+  padding-top:
+    18px;
+
+  display: flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  gap: 42px;
+
+  border-top:
+    1px solid
+    rgba(245, 240, 234, 0.045);
+}
+
+.contact__reservation-bottom
+> span {
+  display: flex;
+
+  align-items:
+    center;
+
+  gap: 8px;
+
+  color:
+    rgba(245, 240, 234, 0.19);
+
+  font-family:
+    'Oswald',
+    sans-serif;
+
+  font-size:
+    0.39rem;
+
+  letter-spacing:
+    0.17em;
+}
+
+.contact__reservation-bottom
+i {
+  width: 3px;
+  height: 3px;
+
+  border-radius:
+    50%;
+
+  background:
+    rgba(200, 170, 141, 0.6);
+
+  animation:
+    contactBottomDot
+    5s
+    ease-in-out
+    infinite;
+}
+
+.contact__reservation-bottom
+span:nth-child(2)
+i {
+  animation-delay:
+    -1.65s;
+}
+
+.contact__reservation-bottom
+span:nth-child(3)
+i {
+  animation-delay:
+    -3.3s;
+}
+
+/* =========================================================
+   FOCUS RETICLE
+========================================================= */
+
+.contact__focus {
+  position: absolute;
+
+  top: 102px;
+  right: 27px;
+
+  z-index: 2;
+
+  width: 62px;
+  height: 62px;
+
+  opacity: 0.21;
+
+  pointer-events:
+    none;
+
+  animation:
+    contactFocusBreath
+    5.2s
+    ease-in-out
+    infinite;
+}
+
+.contact__focus > span {
+  position: absolute;
+
+  width: 13px;
+  height: 13px;
+}
+
+.contact__focus
+> span:nth-child(1) {
+  top: 0;
+  left: 0;
+
+  border-top:
+    1px solid #c8aa8d;
+
+  border-left:
+    1px solid #c8aa8d;
+}
+
+.contact__focus
+> span:nth-child(2) {
+  top: 0;
+  right: 0;
+
+  border-top:
+    1px solid #c8aa8d;
+
+  border-right:
+    1px solid #c8aa8d;
+}
+
+.contact__focus
+> span:nth-child(3) {
+  bottom: 0;
+  left: 0;
+
+  border-bottom:
+    1px solid #c8aa8d;
+
+  border-left:
+    1px solid #c8aa8d;
+}
+
+.contact__focus
+> span:nth-child(4) {
+  right: 0;
+  bottom: 0;
+
+  border-right:
+    1px solid #c8aa8d;
+
+  border-bottom:
+    1px solid #c8aa8d;
+}
+
+/* =========================================================
+   FOCUS CROSS
+========================================================= */
+
+.contact__focus-cross {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 17px;
+  height: 17px;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+}
+
+.contact__focus-cross
+span {
+  position: absolute;
+
+  background:
+    rgba(200, 170, 141, 0.5);
+}
+
+.contact__focus-cross
+span:first-child {
+  top: 50%;
+
+  width: 100%;
+  height: 1px;
+}
+
+.contact__focus-cross
+span:last-child {
+  left: 50%;
+
+  width: 1px;
+  height: 100%;
+}
+
+/* =========================================================
+   BOTTOM
+========================================================= */
+
+.contact__bottom {
+  width:
+    min(
+      100%,
+      1080px
+    );
+
+  margin:
+    36px auto
+    0;
+
+  display: flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    center;
+
+  gap: 18px;
+
+  color:
+    rgba(245, 240, 234, 0.16);
+
+  font-family:
+    'Oswald',
+    sans-serif;
+
+  font-size:
+    0.38rem;
+
+  letter-spacing:
+    0.17em;
+}
+
+.contact__bottom-line {
+  width: 25px;
+  height: 1px;
+
+  background:
+    rgba(200, 170, 141, 0.15);
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes contactBrandBreath {
+  0%,
+  100% {
+    color:
+      rgba(245, 240, 234, 0.88);
+
+    text-shadow:
+      0 0 0
+      rgba(200, 170, 141, 0);
+  }
+
+  50% {
+    color: #fff;
+
+    text-shadow:
+      0 0 21px
+      rgba(200, 170, 141, 0.06);
+  }
+}
+
+@keyframes contactCornerBreath {
+  0%,
+  100% {
+    opacity:
+      0.4;
+  }
+
+  50% {
+    opacity:
+      0.9;
+  }
+}
+
+@keyframes contactEyebrowSweep {
+  0% {
+    left:
+      -100%;
+
+    opacity:
+      0;
+  }
+
+  25% {
+    opacity:
+      0;
+  }
+
+  45%,
+  72% {
+    opacity:
+      0.85;
+  }
+
+  100% {
+    left:
+      100%;
+
+    opacity:
+      0;
+  }
+}
+
+@keyframes contactTitleBreath {
+  0%,
+  100% {
+    color:
+      rgba(245, 240, 234, 0.9);
+
+    text-shadow:
+      0 0 0
+      rgba(245, 240, 234, 0);
+  }
+
+  50% {
+    color:
+      #fffaf5;
+
+    text-shadow:
+      0 0 27px
+      rgba(245, 240, 234, 0.03);
+  }
+}
+
+@keyframes contactTitleShimmer {
+  0%,
+  15% {
+    background-position:
+      110% center;
+  }
+
+  50% {
+    background-position:
+      45% center;
+  }
+
+  85%,
+  100% {
+    background-position:
+      -20% center;
+  }
+}
+
+@keyframes contactPanelBreath {
+  0%,
+  100% {
+    border-color:
+      rgba(200, 170, 141, 0.13);
+
+    box-shadow:
+      0 55px 140px
+      rgba(0, 0, 0, 0.42),
+
+      inset 0 1px 0
+      rgba(255, 255, 255, 0.04);
+  }
+
+  50% {
+    border-color:
+      rgba(200, 170, 141, 0.23);
+
+    box-shadow:
+      0 62px 150px
+      rgba(0, 0, 0, 0.48),
+
+      0 0 40px
+      rgba(200, 170, 141, 0.018),
+
+      inset 0 1px 0
+      rgba(255, 255, 255, 0.055);
+  }
+}
+
+@keyframes contactGlassSweep {
+  0% {
+    left:
+      -40%;
+
+    opacity:
+      0;
+  }
+
+  18% {
+    opacity:
+      0;
+  }
+
+  34% {
+    opacity:
+      0.25;
+  }
+
+  53% {
+    opacity:
+      0.58;
+  }
+
+  72% {
+    opacity:
+      0.2;
+  }
+
+  100% {
+    left:
+      120%;
+
+    opacity:
+      0;
+  }
+}
+
+@keyframes contactReservationGlow {
+  0%,
+  100% {
+    opacity:
+      0.45;
+
+    transform:
+      translateX(-50%)
+      scale(0.9);
+  }
+
+  50% {
+    opacity:
+      1;
+
+    transform:
+      translateX(-50%)
+      scale(1.12);
+  }
+}
+
+@keyframes contactRequestBreath {
+  0%,
+  100% {
+    color:
+      rgba(200, 170, 141, 0.35);
+  }
+
+  50% {
+    color:
+      rgba(220, 187, 157, 0.66);
+  }
+}
+
+@keyframes contactStepNumber {
+  0%,
+  12%,
+  37%,
+  100% {
+    color:
+      rgba(200, 170, 141, 0.36);
+  }
+
+  18%,
+  31% {
+    color:
+      #d3b394;
+
+    text-shadow:
+      0 0 12px
+      rgba(200, 170, 141, 0.07);
+  }
+}
+
+@keyframes contactStepLine {
+  0% {
+    left:
+      -35%;
+
+    opacity:
+      0;
+  }
+
+  25% {
+    opacity:
+      0;
+  }
+
+  45%,
+  78% {
+    opacity:
+      0.8;
+  }
+
+  100% {
+    left:
+      100%;
+
+    opacity:
+      0;
+  }
+}
+
+@keyframes contactStatusDot {
+  0%,
+  100% {
+    opacity:
+      0.45;
+
+    transform:
+      scale(0.8);
+
+    box-shadow:
+      0 0 6px
+      rgba(200, 170, 141, 0.08);
+  }
+
+  50% {
+    opacity:
+      1;
+
+    transform:
+      scale(1);
+
+    box-shadow:
+      0 0 14px
+      rgba(200, 170, 141, 0.28);
+  }
+}
+
+@keyframes contactSubmitLight {
+  0% {
+    left:
+      -35%;
+
+    opacity:
+      0;
+  }
+
+  22% {
+    opacity:
+      0;
+  }
+
+  43% {
+    opacity:
+      0.45;
+  }
+
+  68% {
+    opacity:
+      0.18;
+  }
+
+  100% {
+    left:
+      120%;
+
+    opacity:
+      0;
+  }
+}
+
+@keyframes contactSubmitLine {
+  0% {
+    left:
+      -30%;
+
+    opacity:
+      0;
+  }
+
+  30% {
+    opacity:
+      0;
+  }
+
+  48%,
+  80% {
+    opacity:
+      0.9;
+  }
+
+  100% {
+    left:
+      100%;
+
+    opacity:
+      0;
+  }
+}
+
+@keyframes contactBottomDot {
+  0%,
+  100% {
+    opacity:
+      0.25;
+  }
+
+  50% {
+    opacity:
+      0.85;
+  }
+}
+
+@keyframes contactFocusBreath {
+  0%,
+  100% {
+    width:
+      57px;
+
+    height:
+      57px;
+
+    opacity:
+      0.15;
+  }
+
+  45% {
+    width:
+      68px;
+
+    height:
+      68px;
+
+    opacity:
+      0.36;
+  }
+
+  55% {
+    width:
+      65px;
+
+    height:
+      65px;
+
+    opacity:
+      0.31;
+  }
+}
+
+@keyframes contactAmbientOne {
+  0%,
+  100% {
+    transform:
+      translate(
+        -30px,
+        0
+      )
+      scale(0.85);
+
+    opacity:
+      0.45;
+  }
+
+  50% {
+    transform:
+      translate(
+        35px,
+        25px
+      )
+      scale(1.1);
+
+    opacity:
+      0.8;
+  }
+}
+
+@keyframes contactAmbientTwo {
+  0%,
+  100% {
+    transform:
+      translate(
+        20px,
+        -20px
+      )
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translate(
+        -30px,
+        25px
+      )
+      scale(1.15);
+  }
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+  .contact {
+    padding:
+      95px
+      5%
+      65px;
+  }
+
+  .contact__reservation {
+    padding:
+      36px
+      36px
+      25px;
+  }
+
+  .contact__steps {
+    gap:
+      11px;
+  }
+
+  .contact__step small {
+    display:
+      none;
+  }
+
+  .contact__form-row {
+    gap:
+      22px;
+  }
+
+  .contact__submit {
+    max-width:
+      370px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+  .contact {
+    padding:
+      80px
+      20px
+      55px;
+  }
+
+  /* TOP */
+
+  .contact__top {
+    margin-bottom:
+      38px;
+
+    align-items:
+      flex-start;
+  }
+
+  .contact__type {
+    display:
+      none;
+  }
+
+  /* BRAND */
+
+  .contact__brand-mark {
+    min-width:
+      170px;
+
+    padding:
+      14px
+      22px
+      13px
+      25px;
+  }
+
+  .contact__brand-name {
+    font-size:
+      1.05rem;
+
+    letter-spacing:
+      0.32em;
+
+    text-indent:
+      0.32em;
+  }
+
+  .contact__brand-corner {
+    width:
+      18px;
+
+    height:
+      18px;
+  }
+
+  .contact__brand-section {
+    font-size:
+      0.44rem;
+  }
+
+  /* HEADING */
+
+  .contact__heading {
+    margin-bottom:
+      45px;
+  }
+
+  .contact__eyebrow {
+    gap:
+      9px;
+
+    font-size:
+      0.55rem;
+
+    letter-spacing:
+      0.2em;
+  }
+
+  .contact__eyebrow
+  > span {
+    width:
+      18px;
+  }
+
+  .contact__title {
+    font-size:
+      clamp(
+        2.4rem,
+        11vw,
+        3.6rem
+      );
+  }
+
+  .contact__description {
+    max-width:
+      390px;
+
+    font-size:
+      0.72rem;
+  }
+
+  /* PANEL */
+
+  .contact__reservation {
+    padding:
+      28px
+      20px
+      22px;
+  }
+
+  .contact__reservation-top {
+    gap:
+      15px;
+  }
+
+  .contact__reservation-request
+  small {
+    display:
+      none;
+  }
+
+  /* STEPS */
+
+  .contact__steps {
+    padding:
+      18px
+      0
+      24px;
+
+    gap:
+      8px;
+  }
+
+  .contact__step {
+    gap:
+      5px;
+  }
+
+  .contact__step
+  > span {
+    font-size:
+      0.52rem;
+  }
+
+  .contact__step strong {
+    font-size:
+      0.32rem;
+  }
+
+  /* FORM */
+
+  .contact__form {
+    gap:
+      21px;
+  }
+
+  .contact__form-row {
+    grid-template-columns:
+      1fr;
+
+    gap:
+      21px;
+  }
+
+  .contact__field input,
+  .contact__field select {
+    height:
+      50px;
+  }
+
+  .contact__field textarea {
+    min-height:
+      115px;
+  }
+
+  /* SUBMIT */
+
+  .contact__submit-area {
+    flex-direction:
+      column;
+
+    align-items:
+      stretch;
+
+    gap:
+      20px;
+  }
+
+  .contact__submit-info {
+    align-items:
+      center;
+
+    text-align:
+      center;
+  }
+
+  .contact__submit {
+    width:
+      100%;
+
+    max-width:
+      none;
+  }
+
+  /* BOTTOM META */
+
+  .contact__reservation-bottom {
+    gap:
+      14px;
+
+    flex-wrap:
+      wrap;
+  }
+
+  .contact__focus {
+    display:
+      none;
+  }
+
+  .contact__bottom {
+    margin-top:
+      28px;
+
+    flex-wrap:
+      wrap;
+
+    gap:
+      10px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+  .contact__reservation {
+    padding:
+      24px
+      16px
+      20px;
+  }
+
+  .contact__reservation-request {
+    display:
+      none;
+  }
+
+  .contact__steps {
+    grid-template-columns:
+      auto
+      1fr
+      auto
+      1fr
+      auto;
+  }
+
+  .contact__step
+  > div {
+    display:
+      none;
+  }
+
+  .contact__submit {
+    grid-template-columns:
+      auto
+      1fr
+      30px;
+
+    gap:
+      12px;
+  }
+
+  .contact__submit-copy
+  strong {
+    font-size:
+      0.46rem;
+  }
+
+  .contact__reservation-bottom
+  > span {
+    font-size:
+      0.34rem;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .contact__ambient,
+  .contact__brand-name,
+  .contact__brand-corner,
+  .contact__eyebrow > span::after,
+  .contact__title-primary,
+  .contact__title-accent,
+  .contact__reservation,
+  .contact__reservation-light,
+  .contact__reservation-glow,
+  .contact__reservation-request > span,
+  .contact__step > span,
+  .contact__steps-line::after,
+  .contact__status-dot,
+  .contact__submit-light,
+  .contact__submit-line::after,
+  .contact__reservation-bottom i,
+  .contact__focus {
+    animation:
+      none;
+  }
+
+  .contact__title-accent {
+    background:
+      none;
+
+    color:
+      #c8aa8d;
+
+    -webkit-text-fill-color:
+      initial;
+  }
+}

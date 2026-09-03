@@ -1,0 +1,1836 @@
+/* =========================================================
+   DANNO LOADER
+   CINEMATIC CAMERA CAPTURE
+========================================================= */
+
+.loader {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 99999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 48%,
+      #13100e 0%,
+      #090706 34%,
+      #030303 72%,
+      #010101 100%
+    );
+
+  color: #f5f0ea;
+
+  isolation: isolate;
+
+  opacity: 1;
+
+  transition:
+    opacity 0.65s
+    cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    );
+}
+
+.loader--leaving {
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   FILM GRAIN
+========================================================= */
+
+.loader__grain {
+  position: absolute;
+
+  inset: -20%;
+
+  z-index: 80;
+
+  opacity: 0.045;
+
+  pointer-events: none;
+
+  background-image:
+    repeating-radial-gradient(
+      circle at 0 0,
+      rgba(255, 255, 255, 0.11) 0,
+      rgba(255, 255, 255, 0.11) 0.35px,
+      transparent 0.55px,
+      transparent 2px
+    );
+
+  background-size:
+    5px 5px;
+
+  mix-blend-mode:
+    soft-light;
+
+  animation:
+    loaderGrain
+    0.18s
+    steps(2)
+    infinite;
+}
+
+/* =========================================================
+   VIGNETTE
+========================================================= */
+
+.loader__vignette {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 2;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at center,
+      transparent 35%,
+      rgba(0, 0, 0, 0.15) 62%,
+      rgba(0, 0, 0, 0.72) 115%
+    );
+}
+
+/* =========================================================
+   HUD
+========================================================= */
+
+.loader__hud {
+  position: absolute;
+
+  inset:
+    6%
+    7%;
+
+  z-index: 10;
+
+  opacity: 0;
+
+  font-family:
+    'Oswald',
+    sans-serif;
+
+  font-size: 0.36rem;
+
+  letter-spacing: 0.21em;
+
+  color:
+    rgba(245, 240, 234, 0.28);
+
+  animation:
+    loaderHudReveal
+    0.8s
+    ease
+    forwards;
+}
+
+.loader__hud-top,
+.loader__hud-bottom {
+  position: absolute;
+
+  left: 0;
+
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+}
+
+.loader__hud-top {
+  top: 0;
+}
+
+.loader__hud-bottom {
+  bottom: 0;
+}
+
+.loader__hud-top > div {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+/* =========================================================
+   REC DOT
+========================================================= */
+
+.loader__rec-dot {
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background:
+    #c8aa8d;
+
+  box-shadow:
+    0 0 10px
+    rgba(200, 170, 141, 0.5);
+
+  animation:
+    loaderRecDot
+    0.9s
+    ease-in-out
+    infinite;
+}
+
+/* =========================================================
+   VIEWFINDER
+========================================================= */
+
+.loader__viewfinder {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  z-index: 12;
+
+  width:
+    min(
+      560px,
+      72vw
+    );
+
+  height:
+    min(
+      330px,
+      48vh
+    );
+
+  opacity: 0;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    )
+    scale(1.08);
+
+  animation:
+    loaderViewfinderReveal
+    1s
+    cubic-bezier(
+      0.16,
+      1,
+      0.3,
+      1
+    )
+    forwards;
+}
+
+/* =========================================================
+   VIEWFINDER CORNERS
+========================================================= */
+
+.loader__corner {
+  position: absolute;
+
+  width: 38px;
+  height: 38px;
+
+  border-color:
+    rgba(200, 170, 141, 0.46);
+}
+
+.loader__corner--tl {
+  top: 0;
+  left: 0;
+
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+
+.loader__corner--tr {
+  top: 0;
+  right: 0;
+
+  border-top: 1px solid;
+  border-right: 1px solid;
+}
+
+.loader__corner--bl {
+  left: 0;
+  bottom: 0;
+
+  border-left: 1px solid;
+  border-bottom: 1px solid;
+}
+
+.loader__corner--br {
+  right: 0;
+  bottom: 0;
+
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+}
+
+/* =========================================================
+   FOCUS BOX
+========================================================= */
+
+.loader__focus {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 150px;
+  height: 150px;
+
+  opacity: 0.16;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+  animation:
+    loaderFocusLock
+    1.15s
+    cubic-bezier(
+      0.16,
+      1,
+      0.3,
+      1
+    )
+    0.15s
+    forwards;
+}
+
+.loader__focus > span {
+  position: absolute;
+
+  width: 25px;
+  height: 25px;
+
+  border-color:
+    rgba(200, 170, 141, 0.72);
+}
+
+.loader__focus > span:nth-child(1) {
+  top: 0;
+  left: 0;
+
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+
+.loader__focus > span:nth-child(2) {
+  top: 0;
+  right: 0;
+
+  border-top: 1px solid;
+  border-right: 1px solid;
+}
+
+.loader__focus > span:nth-child(3) {
+  left: 0;
+  bottom: 0;
+
+  border-left: 1px solid;
+  border-bottom: 1px solid;
+}
+
+.loader__focus > span:nth-child(4) {
+  right: 0;
+  bottom: 0;
+
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+}
+
+/* =========================================================
+   FOCUS CENTER
+========================================================= */
+
+.loader__focus-center {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 20px;
+  height: 20px;
+
+  opacity: 0.5;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+}
+
+.loader__focus-center span {
+  position: absolute;
+
+  background:
+    #c8aa8d;
+}
+
+.loader__focus-center
+span:first-child {
+  top: 50%;
+  left: 0;
+
+  width: 100%;
+  height: 1px;
+}
+
+.loader__focus-center
+span:last-child {
+  top: 0;
+  left: 50%;
+
+  width: 1px;
+  height: 100%;
+}
+
+/* =========================================================
+   FOCUS LOCK
+========================================================= */
+
+.loader__focus-lock {
+  position: absolute;
+
+  left: 50%;
+  bottom: 27px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  opacity: 0;
+
+  color:
+    rgba(200, 170, 141, 0.62);
+
+  font-family:
+    'Oswald',
+    sans-serif;
+
+  font-size: 0.3rem;
+
+  letter-spacing: 0.22em;
+
+  transform:
+    translateX(-50%);
+
+  animation:
+    loaderFocusText
+    0.4s
+    ease
+    0.86s
+    forwards;
+}
+
+.loader__focus-lock-dot {
+  width: 3px;
+  height: 3px;
+
+  border-radius: 50%;
+
+  background:
+    #c8aa8d;
+
+  box-shadow:
+    0 0 8px
+    rgba(200, 170, 141, 0.5);
+}
+
+/* =========================================================
+   LENS
+========================================================= */
+
+.loader__lens {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  z-index: 25;
+
+  width: 175px;
+  height: 175px;
+
+  opacity: 0;
+
+  border-radius: 50%;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    )
+    scale(1.4);
+
+  animation:
+    loaderLensReveal
+    0.45s
+    ease
+    1.12s
+    forwards;
+}
+
+/* =========================================================
+   LENS RINGS
+========================================================= */
+
+.loader__lens-ring {
+  position: absolute;
+
+  border-radius: 50%;
+}
+
+.loader__lens-ring--outer {
+  inset: 0;
+
+  border:
+    1px solid
+    rgba(200, 170, 141, 0.24);
+
+  box-shadow:
+    0 0 35px
+    rgba(0, 0, 0, 0.8),
+
+    inset 0 0 25px
+    rgba(200, 170, 141, 0.03);
+}
+
+.loader__lens-ring--middle {
+  inset: 17px;
+
+  border:
+    1px solid
+    rgba(245, 240, 234, 0.08);
+}
+
+/* =========================================================
+   IRIS
+========================================================= */
+
+.loader__iris {
+  position: absolute;
+
+  inset: 24px;
+
+  overflow: hidden;
+
+  border-radius: 50%;
+
+  background:
+    #050403;
+
+  transform:
+    rotate(0deg);
+
+  animation:
+    loaderIrisRotation
+    0.6s
+    cubic-bezier(
+      0.7,
+      0,
+      0.3,
+      1
+    )
+    1.2s
+    forwards;
+}
+
+.loader__iris > span {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 130%;
+  height: 48%;
+
+  background:
+    linear-gradient(
+      180deg,
+      #1a1715,
+      #050403
+    );
+
+  transform-origin:
+    0
+    50%;
+
+  clip-path:
+    polygon(
+      0 0,
+      100% 26%,
+      78% 100%,
+      0 62%
+    );
+
+  animation:
+    loaderIrisBlade
+    0.58s
+    cubic-bezier(
+      0.7,
+      0,
+      0.3,
+      1
+    )
+    1.2s
+    both;
+}
+
+.loader__iris > span:nth-child(1) {
+  transform: rotate(0deg);
+}
+
+.loader__iris > span:nth-child(2) {
+  transform: rotate(60deg);
+}
+
+.loader__iris > span:nth-child(3) {
+  transform: rotate(120deg);
+}
+
+.loader__iris > span:nth-child(4) {
+  transform: rotate(180deg);
+}
+
+.loader__iris > span:nth-child(5) {
+  transform: rotate(240deg);
+}
+
+.loader__iris > span:nth-child(6) {
+  transform: rotate(300deg);
+}
+
+/* =========================================================
+   LENS CENTER
+========================================================= */
+
+.loader__lens-center {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  z-index: 4;
+
+  width: 50px;
+  height: 50px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(200, 170, 141, 0.16),
+      rgba(5, 4, 3, 0.9) 58%,
+      #010101 100%
+    );
+
+  box-shadow:
+    inset 0 0 22px
+    #000;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+  animation:
+    loaderLensCenter
+    0.58s
+    ease
+    1.2s
+    both;
+}
+
+/* =========================================================
+   FLASH
+========================================================= */
+
+.loader__flash {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 50;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  background:
+    #fffdf8;
+
+  animation:
+    loaderFlash
+    0.52s
+    cubic-bezier(
+      0.15,
+      0.8,
+      0.2,
+      1
+    )
+    1.59s
+    forwards;
+}
+
+/* =========================================================
+   FLASH BLOOM
+========================================================= */
+
+.loader__flash-bloom {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  z-index: 49;
+
+  width: 30px;
+  height: 30px;
+
+  opacity: 0;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  filter:
+    blur(15px);
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+  animation:
+    loaderFlashBloom
+    0.6s
+    ease-out
+    1.55s
+    forwards;
+}
+
+/* =========================================================
+   IDENTITY
+========================================================= */
+
+.loader__identity {
+  position: relative;
+
+  z-index: 35;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  opacity: 0;
+
+  transform:
+    translateY(10px)
+    scale(0.94);
+
+  animation:
+    loaderIdentity
+    0.95s
+    cubic-bezier(
+      0.16,
+      1,
+      0.3,
+      1
+    )
+    1.85s
+    forwards;
+}
+
+/* =========================================================
+   LOGO FRAME
+========================================================= */
+
+.loader__logo-frame {
+  position: relative;
+
+  width:
+    clamp(
+      180px,
+      21vw,
+      300px
+    );
+
+  overflow: hidden;
+
+  filter:
+    drop-shadow(
+      0 20px 40px
+      rgba(0, 0, 0, 0.55)
+    );
+}
+
+/* =========================================================
+   LOGO
+========================================================= */
+
+.loader__logo {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+  height: auto;
+
+  display: block;
+
+  opacity: 0;
+
+  object-fit: contain;
+
+  filter:
+    brightness(2)
+    blur(5px);
+
+  transform:
+    scale(1.1);
+
+  animation:
+    loaderLogoExposure
+    1s
+    cubic-bezier(
+      0.16,
+      1,
+      0.3,
+      1
+    )
+    1.82s
+    forwards;
+}
+
+/* =========================================================
+   LOGO GLOW
+========================================================= */
+
+.loader__logo-glow {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  z-index: 0;
+
+  width: 70%;
+  height: 65%;
+
+  opacity: 0;
+
+  border-radius: 50%;
+
+  background:
+    rgba(200, 170, 141, 0.14);
+
+  filter:
+    blur(55px);
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+  animation:
+    loaderLogoGlow
+    1.4s
+    ease
+    1.86s
+    forwards;
+}
+
+/* =========================================================
+   LOGO SCAN
+========================================================= */
+
+.loader__logo-scan {
+  position: absolute;
+
+  top: -80%;
+  bottom: -80%;
+  left: -35%;
+
+  z-index: 4;
+
+  width: 16%;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.06),
+      rgba(255, 255, 255, 0.75),
+      rgba(200, 170, 141, 0.18),
+      transparent
+    );
+
+  filter:
+    blur(5px);
+
+  transform:
+    skewX(-16deg);
+
+  animation:
+    loaderLogoScan
+    1.3s
+    ease-in-out
+    2.03s
+    forwards;
+}
+
+/* =========================================================
+   IDENTITY META
+========================================================= */
+
+.loader__identity-meta {
+  margin-top: 13px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 14px;
+
+  opacity: 0;
+
+  animation:
+    loaderMetaReveal
+    0.55s
+    ease
+    2.18s
+    forwards;
+}
+
+.loader__identity-meta > span {
+  width: 38px;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(200, 170, 141, 0.35)
+    );
+}
+
+.loader__identity-meta
+> span:last-child {
+  transform:
+    scaleX(-1);
+}
+
+.loader__identity-meta > div {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 3px;
+}
+
+.loader__identity-meta strong {
+  color:
+    rgba(245, 240, 234, 0.86);
+
+  font-family:
+    'Kanit',
+    sans-serif;
+
+  font-size: 0.55rem;
+
+  font-weight: 500;
+
+  letter-spacing: 0.3em;
+}
+
+.loader__identity-meta small {
+  color:
+    rgba(200, 170, 141, 0.3);
+
+  font-family:
+    'Oswald',
+    sans-serif;
+
+  font-size: 0.25rem;
+
+  letter-spacing: 0.22em;
+}
+
+/* =========================================================
+   CAPTURE FRAME
+========================================================= */
+
+.loader__capture-frame {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  z-index: 20;
+
+  width:
+    min(
+      430px,
+      62vw
+    );
+
+  height:
+    min(
+      270px,
+      42vh
+    );
+
+  opacity: 0;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    )
+    scale(0.94);
+
+  animation:
+    loaderCaptureFrame
+    1s
+    ease
+    1.78s
+    forwards;
+}
+
+.loader__capture-frame > span {
+  position: absolute;
+
+  width: 25px;
+  height: 25px;
+
+  border-color:
+    rgba(200, 170, 141, 0.22);
+}
+
+.loader__capture-frame
+> span:nth-child(1) {
+  top: 0;
+  left: 0;
+
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+
+.loader__capture-frame
+> span:nth-child(2) {
+  top: 0;
+  right: 0;
+
+  border-top: 1px solid;
+  border-right: 1px solid;
+}
+
+.loader__capture-frame
+> span:nth-child(3) {
+  left: 0;
+  bottom: 0;
+
+  border-left: 1px solid;
+  border-bottom: 1px solid;
+}
+
+.loader__capture-frame
+> span:nth-child(4) {
+  right: 0;
+  bottom: 0;
+
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+}
+
+/* =========================================================
+   BOTTOM
+========================================================= */
+
+.loader__bottom {
+  position: absolute;
+
+  left: 50%;
+  bottom: 28px;
+
+  z-index: 35;
+
+  width:
+    min(
+      430px,
+      72vw
+    );
+
+  display: grid;
+
+  grid-template-columns:
+    auto
+    1fr
+    auto;
+
+  align-items: center;
+
+  gap: 16px;
+
+  opacity: 0;
+
+  color:
+    rgba(245, 240, 234, 0.14);
+
+  font-family:
+    'Oswald',
+    sans-serif;
+
+  font-size: 0.25rem;
+
+  letter-spacing: 0.2em;
+
+  transform:
+    translateX(-50%);
+
+  animation:
+    loaderBottomReveal
+    0.5s
+    ease
+    2.12s
+    forwards;
+}
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+.loader__progress {
+  position: relative;
+
+  height: 1px;
+
+  overflow: hidden;
+
+  background:
+    rgba(245, 240, 234, 0.04);
+}
+
+.loader__progress > span {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 0;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(200, 170, 141, 0.1),
+      #c8aa8d
+    );
+
+  animation:
+    loaderProgress
+    0.8s
+    cubic-bezier(
+      0.16,
+      1,
+      0.3,
+      1
+    )
+    2.15s
+    forwards;
+}
+
+/* =========================================================
+   EXIT CURTAINS
+========================================================= */
+
+.loader__curtain {
+  position: absolute;
+
+  left: 0;
+
+  z-index: 70;
+
+  width: 100%;
+  height: 50%;
+
+  pointer-events: none;
+
+  background:
+    #020202;
+
+  transform: scaleY(0);
+}
+
+.loader__curtain--top {
+  top: 0;
+
+  transform-origin: top;
+
+  animation:
+    loaderCurtainTop
+    0.68s
+    cubic-bezier(
+      0.76,
+      0,
+      0.24,
+      1
+    )
+    2.92s
+    forwards;
+}
+
+.loader__curtain--bottom {
+  bottom: 0;
+
+  transform-origin: bottom;
+
+  animation:
+    loaderCurtainBottom
+    0.68s
+    cubic-bezier(
+      0.76,
+      0,
+      0.24,
+      1
+    )
+    2.92s
+    forwards;
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes loaderHudReveal {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes loaderRecDot {
+  0%,
+  100% {
+    opacity: 0.25;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes loaderViewfinderReveal {
+  0% {
+    opacity: 0;
+
+    transform:
+      translate(
+        -50%,
+        -50%
+      )
+      scale(1.08);
+  }
+
+  100% {
+    opacity: 1;
+
+    transform:
+      translate(
+        -50%,
+        -50%
+      )
+      scale(1);
+  }
+}
+
+@keyframes loaderFocusLock {
+  0% {
+    width: 155px;
+    height: 155px;
+
+    opacity: 0.12;
+  }
+
+  55% {
+    width: 95px;
+    height: 95px;
+
+    opacity: 0.5;
+  }
+
+  80% {
+    width: 72px;
+    height: 72px;
+
+    opacity: 1;
+  }
+
+  100% {
+    width: 78px;
+    height: 78px;
+
+    opacity: 0.82;
+  }
+}
+
+@keyframes loaderFocusText {
+  from {
+    opacity: 0;
+
+    transform:
+      translateX(-50%)
+      translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateX(-50%)
+      translateY(0);
+  }
+}
+
+@keyframes loaderLensReveal {
+  from {
+    opacity: 0;
+
+    transform:
+      translate(
+        -50%,
+        -50%
+      )
+      scale(1.4);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translate(
+        -50%,
+        -50%
+      )
+      scale(1);
+  }
+}
+
+@keyframes loaderIrisRotation {
+  from {
+    transform:
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      rotate(24deg);
+  }
+}
+
+@keyframes loaderIrisBlade {
+  0% {
+    margin-top: -23%;
+
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  62% {
+    margin-top: -2%;
+  }
+
+  100% {
+    margin-top: -23%;
+
+    opacity: 0;
+  }
+}
+
+@keyframes loaderLensCenter {
+  0% {
+    width: 55px;
+    height: 55px;
+
+    opacity: 0.6;
+  }
+
+  58% {
+    width: 7px;
+    height: 7px;
+
+    opacity: 1;
+  }
+
+  100% {
+    width: 58px;
+    height: 58px;
+
+    opacity: 0;
+  }
+}
+
+@keyframes loaderFlash {
+  0% {
+    opacity: 0;
+  }
+
+  8% {
+    opacity: 0.3;
+  }
+
+  16% {
+    opacity: 1;
+  }
+
+  31% {
+    opacity: 0.82;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes loaderFlashBloom {
+  0% {
+    opacity: 0;
+
+    width: 20px;
+    height: 20px;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+
+    width: 850px;
+    height: 850px;
+  }
+}
+
+@keyframes loaderIdentity {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(10px)
+      scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+@keyframes loaderLogoExposure {
+  0% {
+    opacity: 0;
+
+    filter:
+      brightness(2.4)
+      blur(7px);
+
+    transform:
+      scale(1.12);
+  }
+
+  35% {
+    opacity: 1;
+
+    filter:
+      brightness(1.65)
+      blur(2px);
+  }
+
+  70% {
+    filter:
+      brightness(1.15)
+      blur(0);
+  }
+
+  100% {
+    opacity: 1;
+
+    filter:
+      brightness(1)
+      blur(0);
+
+    transform:
+      scale(1);
+  }
+}
+
+@keyframes loaderLogoGlow {
+  0% {
+    opacity: 0;
+
+    transform:
+      translate(
+        -50%,
+        -50%
+      )
+      scale(0.7);
+  }
+
+  45% {
+    opacity: 0.65;
+  }
+
+  100% {
+    opacity: 0.2;
+
+    transform:
+      translate(
+        -50%,
+        -50%
+      )
+      scale(1.15);
+  }
+}
+
+@keyframes loaderLogoScan {
+  0% {
+    left: -35%;
+
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.1;
+  }
+
+  50% {
+    opacity: 0.8;
+  }
+
+  75% {
+    opacity: 0.12;
+  }
+
+  100% {
+    left: 120%;
+
+    opacity: 0;
+  }
+}
+
+@keyframes loaderMetaReveal {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+@keyframes loaderCaptureFrame {
+  0% {
+    opacity: 0;
+
+    transform:
+      translate(
+        -50%,
+        -50%
+      )
+      scale(0.92);
+  }
+
+  50% {
+    opacity: 0.26;
+  }
+
+  100% {
+    opacity: 0.1;
+
+    transform:
+      translate(
+        -50%,
+        -50%
+      )
+      scale(1);
+  }
+}
+
+@keyframes loaderBottomReveal {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes loaderProgress {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes loaderCurtainTop {
+  0% {
+    transform:
+      scaleY(0);
+  }
+
+  48% {
+    transform:
+      scaleY(1);
+  }
+
+  52% {
+    transform:
+      scaleY(1);
+  }
+
+  100% {
+    transform:
+      scaleY(0);
+  }
+}
+
+@keyframes loaderCurtainBottom {
+  0% {
+    transform:
+      scaleY(0);
+  }
+
+  48% {
+    transform:
+      scaleY(1);
+  }
+
+  52% {
+    transform:
+      scaleY(1);
+  }
+
+  100% {
+    transform:
+      scaleY(0);
+  }
+}
+
+@keyframes loaderGrain {
+  0% {
+    transform:
+      translate(0);
+  }
+
+  25% {
+    transform:
+      translate(
+        -1%,
+        1%
+      );
+  }
+
+  50% {
+    transform:
+      translate(
+        1%,
+        -1%
+      );
+  }
+
+  75% {
+    transform:
+      translate(
+        0.5%,
+        1%
+      );
+  }
+
+  100% {
+    transform:
+      translate(
+        -0.5%,
+        -0.5%
+      );
+  }
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 800px) {
+  .loader__viewfinder {
+    width: 80vw;
+    height: 45vh;
+  }
+
+  .loader__capture-frame {
+    width: 70vw;
+    height: 36vh;
+  }
+
+  .loader__logo-frame {
+    width:
+      clamp(
+        180px,
+        34vw,
+        260px
+      );
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 550px) {
+  .loader__hud {
+    inset:
+      5%
+      6%;
+
+    font-size: 0.28rem;
+  }
+
+  .loader__viewfinder {
+    width: 82vw;
+    height: 39vh;
+  }
+
+  .loader__corner {
+    width: 25px;
+    height: 25px;
+  }
+
+  .loader__lens {
+    width: 140px;
+    height: 140px;
+  }
+
+  .loader__logo-frame {
+    width: 205px;
+  }
+
+  .loader__capture-frame {
+    width: 72vw;
+    height: 30vh;
+  }
+
+  .loader__bottom {
+    bottom: 20px;
+
+    width: 78vw;
+
+    font-size: 0.21rem;
+
+    gap: 10px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .loader__grain,
+  .loader__rec-dot,
+  .loader__hud,
+  .loader__viewfinder,
+  .loader__focus,
+  .loader__focus-lock,
+  .loader__lens,
+  .loader__iris,
+  .loader__iris > span,
+  .loader__lens-center,
+  .loader__flash,
+  .loader__flash-bloom,
+  .loader__identity,
+  .loader__logo,
+  .loader__logo-glow,
+  .loader__logo-scan,
+  .loader__identity-meta,
+  .loader__capture-frame,
+  .loader__bottom,
+  .loader__progress > span,
+  .loader__curtain {
+    animation: none;
+  }
+
+  .loader__hud,
+  .loader__identity,
+  .loader__logo,
+  .loader__identity-meta,
+  .loader__bottom {
+    opacity: 1;
+
+    transform: none;
+  }
+
+  .loader__viewfinder,
+  .loader__lens,
+  .loader__capture-frame {
+    display: none;
+  }
+
+  .loader__progress > span {
+    width: 100%;
+  }
+}
