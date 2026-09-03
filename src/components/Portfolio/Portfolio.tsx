@@ -608,7 +608,7 @@ function Portfolio() {
               {progressIndexes.map(
                 (index) => (
                   <button
-                    key={index}
+                    key={portfolioItems[index].id}
                     type="button"
                     className={`portfolio__dot ${
                       activeIndex === index

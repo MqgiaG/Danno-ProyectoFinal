@@ -484,7 +484,7 @@ ${formData.message || 'Quiero conocer más información sobre el servicio.'}
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  rows="4"
+                  rows={4}
                   placeholder="Platícame un poco sobre lo que tienes en mente..."
                 />
 

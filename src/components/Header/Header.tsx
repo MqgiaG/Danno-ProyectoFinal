@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import './Header.css'
 
 const navigation = [
@@ -19,6 +20,10 @@ const navigation = [
     label: 'Servicios',
   },
   {
+    id: 'condiciones',
+    label: 'Clima',
+  },
+  {
     id: 'contacto',
     label: 'Contacto',
   },
@@ -30,7 +35,7 @@ function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   useEffect(() => {
-    let animationFrame = null
+    let animationFrame: number | null = null
 
     const handleScroll = () => {
       if (animationFrame) return
@@ -91,7 +96,7 @@ function Header() {
     }
   }, [])
 
-  const handleNavigation = (id) => {
+  const handleNavigation = (id: string) => {
     setActiveSection(id)
     setIsMenuOpen(false)
   }
@@ -180,6 +185,13 @@ function Header() {
                 </a>
               )
             })}
+
+            <Link
+              to="/sobre-el-autor"
+              className="header__nav-link"
+            >
+              <span className="header__nav-label">Autor</span>
+            </Link>
           </nav>
 
           {/* =========================
@@ -292,6 +304,18 @@ function Header() {
               </a>
             )
           })}
+
+          <Link
+            to="/sobre-el-autor"
+            className="header__mobile-link"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            <span className="header__mobile-index">
+              {String(navigation.length + 1).padStart(2, '0')}
+            </span>
+            <span className="header__mobile-name">Sobre el autor</span>
+            <span className="header__mobile-arrow">↗</span>
+          </Link>
         </nav>
 
         <a
